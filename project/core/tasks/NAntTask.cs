@@ -359,7 +359,7 @@ namespace ThoughtWorks.CruiseControl.Core.Tasks
 			buffer.AppendArgument("-logger:{0}", Logger);
 			buffer.AppendArgument("-logfile:{0}", StringUtil.AutoDoubleQuoteString(GetNantOutputFile(result)));
 			buffer.AppendArgument("-listener:{0}", Listener);
-			buffer.AppendArgument(BuildArgs);
+            buffer.AppendArgument(BuildArgs.Replace("\n", " "));
 			AppendIntegrationResultProperties(buffer, result);
 			AppendTargets(buffer);
 			return buffer.ToString();
